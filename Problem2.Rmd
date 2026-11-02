@@ -1,0 +1,79 @@
+---
+title: "Problem 2"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(p8105.datasets)
+```
+
+
+First load the dataset, clean and rewrite the dataset in a readable way.
+
+```{r}
+data("ny_noaa")
+
+ny_noaa =
+  ny_noaa |>
+  filter(
+    id == "USW00094728",
+    date >= as.Date("2001-01-01"),
+    date <= as.Date("2010-12-31")
+  ) |>
+  select(id, date, prcp, tmax, tmin) |>
+  mutate(
+    tmax = as.numeric(tmax) / 10,
+    tmin = as.numeric(tmin) / 10,
+    prcp = prcp / 10,
+    month = lubridate::month(date)
+  ) |>
+  arrange(date)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+Sort out temperatures only to create scatter plot.
+
+```{r}
+scatter_df =
+  ny_noaa |>
+  drop_na(tmin, tmax) |>
+  plotly::plot_ly(
+    x = ~tmin,
+    y = ~tmax,
+    type = "scatter",
+    mode = "markers",
+    alpha = 0.4
+  ) |>
+  plotly::layout(
+    title = "Daily Temperatures in Central Park, 2001–2010",
+    xaxis = list(title = "Minimum temperature (°C)"),
+    yaxis = list(title = "Maximum temperature (°C)")
+  )
+
+scatter_df
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+
+```
+
+### Chart C
+
+```{r}
+
+```
+
