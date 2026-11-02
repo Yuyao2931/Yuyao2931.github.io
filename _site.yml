@@ -1,0 +1,21 @@
+name: "Yuyao Jin"
+output_dir: "."
+
+navbar:
+  title: "Yuyao Jin"
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "Experience"
+      href: about.html
+    - icon: fa-envelope fa-lg
+      href: mailto:yj2931@cumc.columbia.edu
+    - icon: fa-github fa-lg
+      href: https://github.com/Yuyao2931
+    - icon: fa-linkedin fa-lg
+      href: https://www.linkedin.com/in/yuyao-jin-80100a252/
+
+output:
+  html_document:
+    theme: cosmo
+     

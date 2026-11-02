@@ -1,0 +1,55 @@
+---
+title: "Experience"
+---
+# Education
+
+## Columbia University Mailman School of Public Health  
+**Master of Public Health in Biostatistics**  
+*September 2025 – Expected May 2027*
+
+I am pursuing an MPH in Biostatistics with a certificate in Advanced Epidemiology. My coursework includes linear regression modeling, categorical data analysis, statistical computing with SAS, epidemiologic study design, and data science for public health.
+
+## Franklin & Marshall College  
+**Bachelor of Arts in Bioinformatics**  
+*September 2022 – May 2025*
+
+My undergraduate training combined biology, statistics, computer science, and data science, providing a foundation for my current interests in quantitative health research.
+
+# Professional Experience
+
+## Teaching Assistant, Department of Biostatistics  
+**Columbia University Mailman School of Public Health**  
+*September 2026 – Present*
+
+I support biostatistics instruction by assisting students with SAS fundamentals and course questions. I also help coordinate attendance tracking and assignment-related communication.
+
+## Intern  
+**Wellness Equity Alliance (WEA)**  
+*September 2026 – Present*
+
+I support public health and health equity initiatives focused on HIV and street medicine. My work includes maintaining partnership directories and trackers for Los Angeles and Riverside, supporting CWIC PnP training, and contributing to communications and outreach documentation.
+
+## Research Assistant / Data Analyst  
+**Columbia University**  
+*May 2026 – September 2026*
+
+I worked with cross-sectional mental health survey data, using Stata for data cleaning, missing-value coding, range and consistency checks, and identification of invalid values. I developed reproducible workflows for variable coding, harmonization, and descriptive analysis and collaborated with international researchers to prepare analysis-ready datasets.
+
+## Data Analyst  
+**UnionClin, Guangzhou, China**  
+*June 2025 – August 2025*
+
+I cleaned, validated, and analyzed clinical trial datasets using R and Excel to support pharmaceutical research. I also converted SAS-based analysis workflows into R, created data visualizations and summary reports, and collaborated with data managers and clinical researchers to improve the consistency and reproducibility of analysis pipelines.
+
+## Research Assistant  
+**Franklin & Marshall College**  
+*January 2024 – December 2024*
+
+I conducted research involving experimental design, quantitative analysis, and data visualization using R and Excel. I also prepared scientific reports and presented research findings, developing experience in data interpretation and scientific communication.
+
+# Selected Project
+
+## Tumor Mutation Burden and Clinical Outcomes in Breast Cancer  
+*Spring 2026*
+
+I analyzed TCGA breast cancer data to investigate associations between tumor mutation burden, tumor stage, and clinical outcomes. The project included logistic and linear regression, Cox proportional hazards modeling, Kaplan–Meier survival analysis, data preprocessing, log transformation, and sensitivity analyses.
