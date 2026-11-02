@@ -9,3 +9,4 @@ I am Yuyao Jin, a graduate student in Biostatistics at the Columbia University M
 My academic interests include biostatistics, epidemiology, data science, and the application of quantitative methods to public health and pharmaceutical research. Through coursework and research projects, I have worked with R, SAS, and Stata for data cleaning, statistical analysis, visualization, and reproducible research. I have experiences with Python, Java, and C++ as well.
 
 My recent experiences include working on an Afghanistan mental health research project with the Columbia Population Center and contributing to health equity projects with the Wellness Equity Alliance. I am particularly interested in applying statistical and data science methods to real-world health data and exploring opportunities in biostatistics, pharmaceutical research, and related fields.
+
