@@ -1,9 +1,9 @@
 ---
 title: "Problem 2"
-output: 
+output:
   flexdashboard::flex_dashboard:
-    orientation: columns
-    vertical_layout: fill
+    orientation: rows
+    vertical_layout: scroll
 ---
 
 ```{r setup, include=FALSE}
@@ -35,7 +35,7 @@ ny_noaa =
   arrange(date)
 ```
 
-Column {data-width=650}
+Row {data-height=550}
 -----------------------------------------------------------------------
 
 ### Scatter Plot
@@ -62,7 +62,7 @@ scatter_df =
 scatter_df
 ```
 
-Column {data-width=350}
+Row {data-height=550}
 -----------------------------------------------------------------------
 
 Daily minimum and maximum temperatures in Central Park show a strong positive relationship during 2001–2010. Days with higher minimum temperatures generally also have higher maximum temperatures. The spread of points indicates that the difference between daily highs and lows varies across days.
@@ -167,5 +167,6 @@ ny_noaa |>
     )
   )
 ```
+
 
 During 2001–2010, Central Park recorded precipitation on approximately 28%–41% of days in each calendar month. June had the highest percentage of rainy days, at about 41%, while September had the lowest, at about 28%. Precipitation occurred throughout the year, with moderate monthly variation. These percentages describe how frequently precipitation occurred, rather than the total amount received.
