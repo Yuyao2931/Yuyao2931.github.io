@@ -130,9 +130,42 @@ line_df
 
 Monthly average maximum temperatures show a clear seasonal pattern, peaking in July or August and reaching their yearly lows in December, January, or February. Across the study period, the highest monthly average maximum temperature was approximately 32.3°C in July 2010, while the lowest was approximately −0.6°C in January 2004. These values represent monthly averages of daily maximum temperatures, rather than individual daily extremes.
 
-### Chart C
+### Bar Plot
+
+I've done max temperature vs. min temperature, and the temperature trending over years. So, rainy percent was observed in this plot. 
 
 ```{r}
-
+ny_noaa |>
+  mutate(
+    month = lubridate::month(
+      date, label = TRUE, abbr = TRUE, locale = "C"
+    )
+  ) |>
+  drop_na(prcp) |>
+  group_by(month) |>
+  summarise(rainy_percent = 100 * mean(prcp > 0)) |>
+  ungroup() |>
+  arrange(month) |>
+  plotly::plot_ly(
+    x = ~month,
+    y = ~rainy_percent,
+    type = "bar",
+    text = ~str_c(round(rainy_percent, 1), "%"),
+    textposition = "outside",
+    cliponaxis = FALSE
+  ) |>
+  plotly::layout(
+    title = "Rainy Days by Month, 2001–2010",
+    xaxis = list(
+      title = "Month",
+      categoryorder = "array",
+      categoryarray = month.abb
+    ),
+    yaxis = list(
+      title = "Rainy days (%)",
+      range = c(0, 50)
+    )
+  )
 ```
 
+During 2001–2010, Central Park recorded precipitation on approximately 28%–41% of days in each calendar month. June had the highest percentage of rainy days, at about 41%, while September had the lowest, at about 28%. Precipitation occurred throughout the year, with moderate monthly variation. These percentages describe how frequently precipitation occurred, rather than the total amount received.
