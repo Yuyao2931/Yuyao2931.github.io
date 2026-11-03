@@ -38,7 +38,7 @@ ny_noaa =
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart A
+### Scatter Plot
 
 Sort out temperatures only to create scatter plot.
 
@@ -65,11 +65,70 @@ scatter_df
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Chart B
+Daily minimum and maximum temperatures in Central Park show a strong positive relationship during 2001–2010. Days with higher minimum temperatures generally also have higher maximum temperatures. The spread of points indicates that the difference between daily highs and lows varies across days.
+
+### Line Plot
+
+I first made the plot. Then I realized it would be easier to understand the plot with highest & lowest temperatures printed in each year. 
 
 ```{r}
+monthly_temp =
+  ny_noaa |>
+  mutate(
+    month_date = lubridate::floor_date(date, unit = "month"),
+    year = lubridate::year(date)
+  ) |>
+  drop_na(tmax) |>
+  group_by(year, month_date) |>
+  summarise(mean_tmax = mean(tmax)) |>
+  ungroup()
 
+yearly_extremes =
+  monthly_temp |>
+  group_by(year) |>
+  filter(
+    mean_tmax == max(mean_tmax) |
+      mean_tmax == min(mean_tmax)
+  ) |>
+  ungroup() |>
+  mutate(
+    label = str_c(
+      format(month_date, "%b"), ": ",
+      round(mean_tmax, 1), "°C"
+    )
+  )
+
+line_df =
+  monthly_temp |>
+  arrange(month_date) |>
+  plotly::plot_ly(
+    x = ~month_date,
+    y = ~mean_tmax,
+    type = "scatter",
+    mode = "lines",
+    name = "Monthly average"
+  ) |>
+  plotly::add_trace(
+    data = yearly_extremes,
+    x = ~month_date,
+    y = ~mean_tmax,
+    type = "scatter",
+    mode = "markers+text",
+    text = ~label,
+    textposition = "top center",
+    name = "Yearly high / low",
+    inherit = FALSE
+  ) |>
+  plotly::layout(
+    title = "Monthly Average Maximum Temperature",
+    xaxis = list(title = "Date"),
+    yaxis = list(title = "Average maximum temperature (°C)")
+  )
+
+line_df
 ```
+
+Monthly average maximum temperatures show a clear seasonal pattern, peaking in July or August and reaching their yearly lows in December, January, or February. Across the study period, the highest monthly average maximum temperature was approximately 32.3°C in July 2010, while the lowest was approximately −0.6°C in January 2004. These values represent monthly averages of daily maximum temperatures, rather than individual daily extremes.
 
 ### Chart C
 
