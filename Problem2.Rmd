@@ -2,7 +2,7 @@
 title: "Problem 2"
 output:
   flexdashboard::flex_dashboard:
-    orientation: rows
+    orientation: columns
     vertical_layout: scroll
 ---
 
@@ -35,12 +35,15 @@ ny_noaa =
   arrange(date)
 ```
 
+Scatter Plot
+=======================================================================
+
 Row {data-height=550}
 -----------------------------------------------------------------------
 
-### Scatter Plot
-
 Sort out temperatures only to create scatter plot.
+
+### Daily Minimum and Maximum Temperatures
 
 ```{r}
 scatter_df =
@@ -62,14 +65,22 @@ scatter_df =
 scatter_df
 ```
 
-Row {data-height=550}
+Row {data-height=180}
 -----------------------------------------------------------------------
+
+### Interpretation
 
 Daily minimum and maximum temperatures in Central Park show a strong positive relationship during 2001–2010. Days with higher minimum temperatures generally also have higher maximum temperatures. The spread of points indicates that the difference between daily highs and lows varies across days.
 
-### Line Plot
+Line Plot
+=======================================================================
+
+Row {data-height=550}
+-----------------------------------------------------------------------
 
 I first made the plot. Then I realized it would be easier to understand the plot with highest & lowest temperatures printed in each year. 
+
+### Monthly Average Maximum Temperature
 
 ```{r}
 monthly_temp =
@@ -128,11 +139,22 @@ line_df =
 line_df
 ```
 
+Row {data-height=220}
+-----------------------------------------------------------------------
+
+### Interpretation
+
 Monthly average maximum temperatures show a clear seasonal pattern, peaking in July or August and reaching their yearly lows in December, January, or February. Across the study period, the highest monthly average maximum temperature was approximately 32.3°C in July 2010, while the lowest was approximately −0.6°C in January 2004. These values represent monthly averages of daily maximum temperatures, rather than individual daily extremes.
 
-### Bar Plot
+Bar Plot
+=======================================================================
+
+Row {data-height=550}
+-----------------------------------------------------------------------
 
 I've done max temperature vs. min temperature, and the temperature trending over years. So, rainy percent was observed in this plot. 
+
+### Rainy Days by Month
 
 ```{r}
 ny_noaa |>
@@ -168,5 +190,9 @@ ny_noaa |>
   )
 ```
 
+Row {data-height=180}
+-----------------------------------------------------------------------
+
+### Interpretation
 
 During 2001–2010, Central Park recorded precipitation on approximately 28%–41% of days in each calendar month. June had the highest percentage of rainy days, at about 41%, while September had the lowest, at about 28%. Precipitation occurred throughout the year, with moderate monthly variation. These percentages describe how frequently precipitation occurred, rather than the total amount received.
